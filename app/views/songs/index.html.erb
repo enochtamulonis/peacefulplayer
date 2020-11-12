@@ -1,0 +1,44 @@
+<div class="h-full w-full flex flex-col items-center pt-10 bg-blue-300">
+  <div class="card-size bg-gray-800 flex flex-col justify-center items-center my-10" data-controller="song">
+    <%= button_to "upload a song", "#",:class => "bg-transparent text-white text-2xl mb-4 px-8 py-2 border-2 border-indigo-300 rounded hover:border-black hover:bg-indigo-300 hover:text-black transition-colors duration-500 ease-in-out cursor-pointer", data: {action: "song#toggleForm", target: "song.toggleButton"} %>
+      <%= form_for(@song) do |f| %>
+        <div class="form-size flex flex-col items-center justify-center hidden" data-target="song.newForm">
+          <div class="h-8 w-full flex justify-end">
+            <%= button_to "Close form","#", :class => "bg-transparent text-red-500 cursor-pointer", data: {action: "song#toggleForm"} %>
+          </div>
+          <%= f.file_field :mp3_file, :class => "border song-field field-width", data: {action: "song#readFile"} %>
+          <%= f.text_field :title, placeholder: "song name", :class => "py-2 field-width h-10 mb-4 pl-2", data: {target: "song.nameField"} %>
+          <%= button_tag :class => "text-white text-2xl mb-4 px-8 py-2 border-2 border-blue-300 rounded hover:border-black hover:bg-indigo-300 hover:text-black transition-colors duration-500 ease-in-out" do %>
+            Upload
+          <% end %>
+        </div>
+    <% end %>
+  </div>
+  <br>
+  <div class="mt-10 h-full w-full bg-gray-800 flex flex-col items-center">
+    <ul class="w-full h-full flex flex-col" id="songs-list" data-controller="showplayer">
+      <% @songs.order(position: "ASC").each do |song| %>
+        <li class="song track-size flex bg-gray-300" data-position="<%= song.position %>" data-src="<%= url_for(song.mp3_file)%>" data-id="<%= song.id %>"data-target="showplayer.song">
+          <div class="play-btn flex justify-center items-center">
+            <a data-action="showplayer#play" class="min-w-10 min-h-10 cursor-pointer" data-position="<%= song.position %>">
+              <i class="fa fa-play fa-2x" data-target="showplayer.playButton""></i>
+            </a>
+          </div>
+          <div class="flex justify-between items-center w-full">
+            <%= link_to song do %>
+              <h4 class="text-2xl text-black text-player hover:text-gray-400"> <%= song.title %> </h4>
+            <% end %>
+            <input id="<%= song.position %>" data-target="showplayer.audioRange" class="w-full mr-10 cursor-pointer" type="range" value="0" min="0" max="0"></input>
+            <div class="min-w-10 h-full px-10 text-2xl flex items-center justify-center">
+              <h2 class="text-2xl text-white" data-target="showplayer.songTimeCurrent">0</h2>
+              <h2 class="text-2xl text-white" data-target="showplayer.songTimeTotal"></h2>
+            </div>
+            <div class="min-w-10 h-full px-10 flex items-center justify-center">
+              <%= link_to "delete", "#", :class => "text-2xl text-red-500", data: {reflex: "click->song#delete_song", id: song.id} %>
+            </div>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

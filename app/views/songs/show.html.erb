@@ -1,0 +1,29 @@
+<div class="h-screen w-full bg-blue-300 flex flex-col items-center" data-controller="showplayer">
+  <div class="card-size h-full w-full flex flex-col items-center justify-between py-10 bg-gray-700" data-position="<%= @song.position %>" data-id="<%= @song.id %>" data-src="<%= url_for(@song.mp3_file)%>" data-target="showplayer.song">
+      <h1 class="text-3xl text-white"> <%= @song.title %> </h1>
+      <div class="visuals-card border-2 border-white pt-6">
+        <div class="flex w-full pl-2">
+          <h2 class="text-2xl text-white mr-2">Current Time: </h2>
+          <h2 class="text-2xl text-white" data-target="showplayer.songTimeCurrent">0</h2>
+          <h2 class="text-2xl text-white" data-target="showplayer.songTime"></h2>
+          <h2 class="text-2xl text-white ml-2">seconds</h2>
+        </div>
+
+      </div>
+  </div>
+  <div class="audio-player-size bg-gray-600">
+      <div class="min-w-10 px-10 h-full flex justify-center items-center">
+        <a data-action="showplayer#play" class="min-w-10 min-h-10 cursor-pointer" data-position="<%= @song.position %>">
+          <i class="fa fa-play fa-2x" data-target="showplayer.playButton""></i>
+        </a>
+      </div>
+      <div class="w-full overflow-hidden">
+        <input id="<%= @song.position %>" data-target="showplayer.audioRange" class="w-full mr-10 cursor-pointer" type="range" value="0" min="0" max="0"></input>
+      </div>
+      <div class="range-progress absolute" data-target="showplayer.progressBar">
+      </div>
+      <div class="min-w-10 px-10 h-full flex justify-center items-center">
+        <i class="fa fa-heart fa-2x bg-text-500" data-action="click->showplayer#toggleFavorite" data-target="showplayer.favorite"></i>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+<div class="w-full h-screen flex flex-col items-center pt-10">
+  <div class="card-size bg-gray-800 flex flex-col items-center">
+    <h1 class="text-3xl text-white">Upload your music</h1>
+
+    <%= render 'form', song: @song %>
+
+    <%= link_to 'Back', songs_path %>
+  </div>
+</div>

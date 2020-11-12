@@ -1,0 +1,53 @@
+// Place all the styles related to the pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.card-size {
+  height: 80vh;
+  width: 90vw;
+}
+
+.logo {
+  transition: all 700ms;
+}
+
+.logo:hover {
+  filter: opacity(0%);
+}
+.visuals-card {
+  width: 50vw;
+  height: 20em;
+
+}
+.form-size {
+  width: 50em;
+  height: 75vh;
+}
+.audio-player {
+  width: 70%;
+  height: 8em;
+}
+
+
+.level:focus {
+  outline: none;
+  outline-style: none;
+}
+
+.level:hover {
+  cursor: pointer;
+}
+.level {
+  height: 0.8em;
+  border-radius: 6px;
+}
+
+
+.level::-webkit-slider-thumb{
+  color: #9ae6b4;
+}
+.level::-moz-range-thumb{
+  color: #9ae6b4;
+}
+
+//// EDIT PAGE

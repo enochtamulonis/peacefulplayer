@@ -1,0 +1,9 @@
+<div class="audio-player-size bg-indigo-500">
+  <div class="h-full w-1/6">
+    <div class="w-1/2 h-full bg-red-500">
+      <%= link_to "#", :class => "play-button-#{song.id}", data: {action: "player#play", src: "#{url_for(song.mp3_file)}", id: "#{song.id}", target: "player.playButton"} do %>
+        play
+      <% end %>
+    </div>
+  </div>
+</div>

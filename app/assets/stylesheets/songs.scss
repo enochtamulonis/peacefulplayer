@@ -1,0 +1,56 @@
+// Place all the styles related to the songs controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.navbar {
+  min-height: 2.5em;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+.track-size {
+  height: 7.5em;
+  width: 100%;
+}
+
+.play-btn {
+  width: 7.5em;
+  height: 7.5em
+}
+
+.audio-player-size {
+  height: 7.5em;
+  width: 100%;
+  position: sticky;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+}
+
+.range-progress {
+  width: 0%;
+  height: 0.75em;
+  color: pink;
+}
+
+.song-field {
+  height: 12em;
+  margin-bottom: 2em;
+  padding-left: 10em;
+  padding-top: 5em;
+}
+
+.field-width {
+  width: 33em;
+}
+.text-player {
+  width: 300px;
+  height: 80%;
+  overflow: scroll;
+  display: flex;
+  align-items: center;
+}
+
+.text-player::-webkit-scrollbar {
+    display: none !important;
+}

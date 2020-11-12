@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Peaceful Plays</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= favicon_link_tag asset_path('speaker.png') %>
+    <script type="text/javascript">
+      // Notice how this gets configured before we load Font Awesome
+      window.FontAwesomeConfig = { autoReplaceSvg: false }
+    </script>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= render 'layouts/navbar' %>
+    <%= yield %>
+  </body>
+</html>
